@@ -1,0 +1,453 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fcffc7;
+    background-color: #020c23;
+}
+
+
+
+/* Navigationsbaren */
+.menubar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fcffc7;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.menubar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menubar li {
+    padding: 10px 20px;
+    background-color: #020c23;
+    color: #fcffc7;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menubar li:hover {
+    background-color: #333;
+}
+
+.menubar a {
+    display: block; /* Linket fylder hele knappen */
+    white-space: nowrap; /* IK LINJE SKIFT*/
+    text-decoration: none;
+    color: #fcffc7;
+}
+
+/* Billede */
+.image-class {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 600px; 
+    height: auto; 
+  }
+  
+
+/* Overskriften */
+.overskrift {
+    padding: 50px 20px 10px 20px;
+    text-align: left;
+    margin-left: 150px; 
+    margin-top: 100px; 
+    max-width: 600px; 
+    z-index: 1; 
+    position: relative;
+}
+
+.overskrift h1 {
+    font-size: 48px;
+    margin: 0 0 10px 0;
+}
+
+.overskrift h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+}
+
+.problemstilling {
+    padding: 0 20px;
+    margin-left: 150px;
+    max-width: 600px;
+    line-height:  1.6;
+}
+
+
+/* Tekst over visualisering */
+.visualisering-tekst-container {
+    text-align: center;
+    margin-top: 450px; 
+    margin-bottom: 20px; 
+    max-width: 80%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.visualisering-tekst {
+    font-size: 18px; /* Gør teksten lidt større */
+    line-height: 1.6; /* Tilføjer passende linjeafstand */
+    text-align: center; /* Centrer teksten */
+    color: #fcffc7; /* Beholder den eksisterende tekstfarve */
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+#buttns-viz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Live Tæller Sektion */
+.live-counter {
+    margin-top: 100px; /* Justér afstanden fra toppen af siden */
+    text-align: left; /* Justér teksten til venstre */
+}
+
+/* Kasse der indeholder tælleren og teksten */
+.counter-box {
+    background-color: #020c23;  /* Mørk baggrund */
+    color: #fcffc7;  /* Lys tekstfarve */
+    border-radius: 15px;  /* Afrundede hjørner */
+    padding: 30px;  /* Afstand rundt om indholdet */
+    width: 80%;  /* Juster bredden af kassen */
+    max-width: 600px;  /* Maksimal bredde */
+    margin-left: 20px;  /* Afstand fra venstre side */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Skyggeeffekt for dybde */
+    border: 3px solid #fcffc7;  /* Lys kant rundt om kassen */
+}
+.counter-box .skrald-text {
+    font-size: 12px;             /* Justér størrelsen på teksten */
+    font-style: italic;          /* Gør teksten kursiv */
+    color: #fcffc7;              /* Rød tekstfarve */
+    margin-top: 10px;            /* Tilføj lidt afstand over teksten */
+    margin-bottom: 15px;         /* Tilføj lidt afstand under teksten */
+}
+
+#fcffc7
+/* Stil på overskrift */
+.counter-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Stil på paragrafen med beskrivelsen */
+.counter-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Stil på tælleren */
+.counter {
+    font-size: 30px;  /* Større tekst for tælleren */
+    font-weight: bold;  /* Gør tælleren fed */
+    color: #ff6f61;  /* Farve på tælleren */
+}
+/* Stil på "Live Tæller" teksten i h2 */
+.live-text {
+  color: #ff6f61;           /* Rød tekstfarve */
+    font-weight: bold;        /* Gør teksten fed */
+    border: 2px solid #ff6f61; /* Rød kant */
+    padding: 2px 6px;         /* Indvendig afstand for at skabe plads til kanten */
+    border-radius: 5px;       /* Bløde hjørner på kassen */
+    background-color:#fcffc7;   /* Hvid baggrund for at fremhæve kassen */
+    display: inline-block;    /* Sørg for, at kassen passer præcist til teksten */
+}
+.ton {
+    color: #ff6f61;    /* Fremhæv tallet i rød */
+    font-weight: bold; /* Gør teksten fed */
+    font-size: 22px;   /* Gør teksten lidt større */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Tilføj en skygge for effekt */
+}
+
+#map {
+    width: 60%; /* Adjust as needed */
+    height: 500px; /* Adjust as needed */
+    margin: 0 auto; /* Center the map horizontally */
+    background: #f0f0f0; /* Optional: Background for visibility */
+    border-radius: 15px; /* Adjust the value for more or less rounding */
+    overflow: hidden; /* Ensures map tiles don’t spill outside rounded corners */
+}
+
+.text-box-container {
+    display: flex; /* Placerer boksene vandret */
+    gap: 20px; /* Afstand mellem boksene */
+    justify-content: center; /* Centrer boksene horisontalt */
+    align-items: flex-start; /* Justerer boksene langs toppen */
+    margin-top: 30px;
+    padding: 20px;
+    max-width: 100%; /* Sørger for, at de ikke går uden for visningen */
+    overflow-x: auto; /* Tilføjer scroll, hvis der ikke er plads nok */
+}
+
+.text-box {
+    background-color: #020c23; /* Matcher sidens baggrund */
+    padding: 20px;
+    border: 2px solid #fcffc7; /* Samme farve som navigationsbaren */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Diskret skygge */
+    text-align: left;
+    min-width: 250px; /* Minimum bredde på hver tekstboks */
+    max-width: 300px; /* Gør boksene en passende størrelse */
+    flex: 1; /* Sørger for, at de deler plads ligeligt */
+}
+
+.text-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #fcffc7; /* Samme farve som teksten */
+}
+
+#oceanimg {
+    height: 300px;
+    width: 4000px;
+}
+
+.text-box p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fcffc7; /* Samme farve som teksten */
+}
+/* Style til spillet /*
+/* Sløring af baggrund, når quizzen vises */
+#quiz-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Mørk semi-transparent baggrund */
+    z-index: 999; /* Sørg for, at quizzen vises over alt andet */
+    display: flex;
+    justify-content: center;  /* Centrer horisontalt */
+    align-items: center;      /* Centrer vertikalt */
+}
+
+/* Quiz-containeren i overlay */
+#quiz-container {
+    background-color: #fcffc7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #020c23;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;  /* Max bredde for quiz-containeren */
+    margin: 0;         /* Sørger for at containeren ikke har ekstra margin */
+    box-sizing: border-box;  /* Sørger for, at padding og border ikke påvirker bredde og højde */
+}
+
+/* Styling af quiz-knapper (De er i spil.css) */
+.option {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #020c23;
+    color: #fcffc7;
+    border: 2px solid #fcffc7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #fcffc7;
+    color: #020c23;
+}
+
+/* Titel */
+h1 {
+    color: #fcffc7;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Spørgsmålstekst */
+#question {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Knapper til svarmuligheder */
+.option {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #020c23;
+    color: #fcffc7;
+    border: 2px solid #fcffc7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #fcffc7;
+    color: #020c23;
+}
+
+.option:active {
+    background-color: #d0d1a1;
+    color: #020c23;
+}
+
+/* Knap til næste spørgsmål */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fcffc7;
+    color: #020c23;
+    border: 2px solid #020c23;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #020c23;
+    color: #fcffc7;
+}
+
+button:active {
+    background-color: #d0d1a1;
+    color: #020c23;
+}
+
+/* Feedback besked */
+#feedback {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Score */
+#score {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#Quizzen {
+    position: absolute; /* Absolut positionering */
+    top: 45%; /* Placér 40% fra toppen, lige over knappen */
+    left: 50%; /* Placér 50% fra venstre */
+    transform: translate(-50%, -50%); /* Juster for centreret placering */
+    font-size: 24px; /* Størrelse på overskriften */
+    font-family: Arial, sans-serif; /* Skrifttype */
+    text-align: center; /* Juster tekst til midten */
+    color: #020c23; /* Mørkegrå farve */
+    margin: 0; /* Fjern margin for præcis placering */
+}
+
+#startBtn {
+    position: absolute;
+    top: 50%; /* Placér knappen under overskriften */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px #2e7d32;
+    transition: all 0.3s ease;
+}
+
+#startBtn:hover {
+    background-color: #45a049;
+}
+
+#startBtn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #1b5e20;
+    transform: translate(-50%, -48%);
+}
+#wrongAnswerBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(140%, -50%);
+    background-color: #fcffc7;
+    border: 2px solid red;
+    padding: 20px;
+    width: 200px; 
+    height: 200px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+/* Knap til næste spørgsmål */
+
+#nextButtonContainer button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#nextButtonContainer button:hover {
+    background-color: #45a049;
+}
+#question-number {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;   /* Justerer teksten til venstre */
+   
+}
+#nextButtonContainer button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#nextButtonContainer button:hover {
+    background-color: #45a049;
+}
+
+
+#tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: black;
+}

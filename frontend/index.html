@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Mikroplast</title>
+    <script src="d3.v7.js"></script>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQppWOPCGLhC373kGAjuMu3GD2qyW2KBugyRQ&s">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+</head>
+<body class="colorChange">
+
+    <!-- Navigations bar -->
+    <nav class="menubar">
+        <ul>
+            <li><a href="#">Hjem</a></li>
+            <li><a href="#">Spand Chart</a></li>
+            <li><a href="#">Line Chart</a></li> 
+            <li><a href="#">Bar Chart</a></li> 
+            <li><a href="#" onclick="showQuiz()">Quizzen</a></li> <!-- Knap til at vise quizzen -->
+        </ul>
+    </nav>
+
+    <!-- Billede -->
+    <img src="https://i.ibb.co/Zc7WY2g/Ody.png" alt="Description of the image" class="image-class">
+
+    <!-- Overskrift og underoverskrift -->
+    <main>
+        <section class="overskrift">
+            <h1>Plastic pollution</h1>
+            <h2>The long lasting problem</h2>
+        </section>
+
+        <section class="problemstilling">
+            <p>Hvordan ser udviklingen af mikroplast ud i de forskellige oceaner rundt omkring i verden, og er man dermed kommet tættere på FN’s mål om “…bæredygtig forvaltning og beskyttelse af havene og kystnære økosystemer…”</p>
+        </section>
+    </main>
+
+    <!-- Live tæller for plastikforurening -->
+<section class="live-counter">
+    <div class="counter-box">
+        <h2><span class="live-text">Live</span> : Plastik i Verdenshavene</h2>
+
+        <p>Der bliver smidt 15 ton plastik i havene hver minut. Se live herunder:</p>
+        <div id="plasticCounter" class="counter">0,00 ton</div>
+        <p class="skrald-text">skrald fra du åbnede siden</p>
+        <p>Siden 1. Januar er over <span class="ton">7.000.000 ton</span> plastik smidt i Havet</p>
+    </div>
+    
+</section>
+
+    <!-- Tekst over visualisering -->
+    <section class="visualisering-tekst-container">
+        <p class="visualisering-tekst">
+            <strong>Visualisering af Mikroplastforurening Over Tid</strong>
+            <br>Denne visualiseringen illustrerer den gennemsnitlige mængde mikroplast, der akkumuleres i en kubikmeter havvand i 4 udvalgte verdenshave.
+            <br>Hver spand illustrerer en kubikmeter vand i det givne hav. 
+        </p>
+    </section>
+
+
+    <section class="visualisering-boks">
+        <svg width="1200" height="400" id="svg-container"></svg>
+        <div class="visualisering-content">
+            <!-- Visualisering indhold -->
+        </div>
+
+        <div id="visuals"></div>  <!-- Cirklerne vil blive tilføjet her -->
+    </section>
+
+    <!-- Show knapper -->
+    <div id="buttns-viz">
+        <button id="2014btn">Show 2014</button>
+        <button id="2015btn">Show 2015</button>
+        <button id="2016btn">Show 2016</button>
+        <button id="2017btn">Show 2017</button>
+        <button id="2018btn">Show 2018</button>
+        <button id="2019btn">Show 2019</button>
+        <button id="2020btn">Show 2020</button>
+    </div>
+
+     <!-- Tekst over visualisering -->
+    <section class="visualisering-tekst-container">
+        <p class="visualisering-tekst">
+            <strong>Visualisering af Mikroplastforurening Over Tid</strong>
+            <br>Denne visualiseringen illustrerer den gennemsnitlige mængde mikroplast, der akkumuleres i en kubikmeter havvand i 4 udvalgte verdenshave.
+            <br>Hver spand illustrerer en kubikmeter vand i det givne hav. 
+        </p>
+    </section>
+
+      <!-- Visualisering kort -->  
+  <div id="map-wrapper" class="map-wrapper">
+    <div id="map"></div>
+</div>
+    
+          
+        <div id="controls"></div>
+        <div class="visualisering-content2"></div>
+            <button id="comparisonButton">Sammenligning</button>
+            <button id="rankingButton">Rank År</button>
+            <div id="chartContainer"></div>
+        </div>
+        
+
+
+    <!-- Tre tekstbokse -->
+    <div class="text-box-container">
+        <div class="text-box">
+            <h3>Mikroplastik i verdenshavene</h3>
+            <p>Mikroplastik er små plastikpartikler, der dannes, når større plastikgenstande nedbrydes. Det findes overalt i havene og skader både havdyr og økosystemer ved at forstyrre fødekæder og skabe giftstoffer.</p>
+        </div>
+        <div class="text-box">
+            <h3>Kilder til mikroplastik</h3>
+            <p>De største kilder til mikroplastik er tekstilfibre fra tøj, kosmetik og nedbrydning af plastaffald. Derudover bidrager rester af bildæk også meget til plastforureningen.</p>
+        </div>
+        <div class="text-box">
+            <h3>Virkninger på havdyr</h3>
+            <p>Mikroplastik kan komme ind i fødekæden, når havdyr spiser det. Det kan skade dyrene ved at forstyrre deres vækst og evne til at formere sig. Desuden kan det samle farlige stoffer, som også kan ende i fisk og skaldyr, der spises af mennesker.
+            </p>
+        </div>
+    </div>
+
+    <div id="line-viz">
+
+    </div>
+
+    <!-- Quiz-containeren, som bliver skjult -->
+    <div id="quiz-overlay" style="display: none;">
+        <div id="quiz-container">
+            <div id="question-number"></div> <!-- Vis nuværende spørgsmål nummer -->
+            <div id="question"></div> <!-- Vis spørgsmålet -->
+            
+            <div id="options"></div> <!-- Vis svarmuligheder -->
+            
+            <!-- Feedback besked -->
+            <div id="feedback"></div>
+        
+            <!-- Box der viser forklaring på forkert svar -->
+            <div id="wrongAnswerBox" style="display: none;">
+                <p id="wrongAnswerExplanation"></p>
+            </div>
+        
+            <!-- Knap til næste spørgsmål -->
+            <div id="nextButtonContainer" style="display: none;">
+                <button onclick="nextQuestion()">Næste spørgsmål</button>
+            </div>
+        
+            <!-- Knap til at lukke quiz -->
+            <div id="restartButtonContainer" style="display: none;">
+                <button id="restartButton" onclick="closeQuiz()">Luk quiz</button>
+            </div>
+        </div> <!-- Luk den oprindelige quiz-container -->
+    </div> <!-- Luk quiz-overlay -->
+
+    <script src="kugler.js"></script>  <!-- Link til kuglerne -->
+    <script src="box-vis.js"></script>
+    <script src="fish-vis.js"></script>
+    <script src="LineGraph.js"></script>
+    <script src="tæller.js"></script>
+    <script src="map.js"></script> <!-- Link til Kortet -->
+</body>
+        <!-- Feedback besked -->
+        <div id="feedback"></div>
+    
+        <!-- Box der viser forklaring på forkert svar -->
+        <div id="wrongAnswerBox" style="display: none;">
+            <p id="wrongAnswerExplanation"></p>
+        </div>
+    
+        <!-- Knap til næste spørgsmål -->
+        <div id="nextButtonContainer" style="display: none;">
+            <button onclick="nextQuestion()">Næste spørgsmål</button>
+        </div>
+    
+        <div id="restartButtonContainer" style="display: none;">
+            <button id="restartButton" onclick="resetQuiz()">Start forfra</button>
+        </div>
+    </div> <!-- Luk den oprindelige quiz-container -->
+</div> <!-- Luk quiz-overlay -->
+    <script src="box-vis.js"></script>
+    <script src="fish-vis.js"></script>
+    <script src="Barchart.js"></script>
+
+</body> 
+</html>
